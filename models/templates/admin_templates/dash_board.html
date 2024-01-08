@@ -1,0 +1,69 @@
+{% extends 'admin_templates/dash_boardBase.html' %}
+{% block title %}
+Dashboard - {{ current_user.name }} Admin
+{% endblock %}
+{% block main_content %}
+<div class="container content">
+    <main class="col-12 col-lg-7 main-content">
+        <h3 class="d-block fw-semibold fs-5 p-3" style="color: hsla(0, 1%, 48%, 0.973);">Recently added</h3>
+        <div class="table-responsive">
+            <table class="table table-light table-striped table-borderless align-middle">
+                <thead class="align-middle">
+                    <tr>
+                        <th class="table-item" scope="col">Title</th>
+                        <th class="table-item" scope="col">Section</th>
+                        <th class="table-item" scope="col">Modification Date</th>
+                        <th class="table-item text-md-center" scope="col" colspan="4">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <th scope="row">
+                                <a class="title-link" href="#">{{ article.title }}</a>
+                            </th>
+                            <td class="table-item">{{ article.section }}</td>
+                            <td class="table-item">{{ article.mdate }}</td>
+                            <td class="table-item align-middle text-center" colspan="4">
+                                <a class="edite-btn" href="#">
+                                    <i class="fa-regular fa-pen-to-square fa-sm" style="display: inline;"></i>  Edite
+                                </a>
+                                <a class="del-btn" href="#">
+                                    <i class="fa-regular fa-trash-can fa-sm" style="display: inline;"></i>  Del
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-outline btn-sm" id="all_articles_btn" href="#">All Articles</button>
+    </main>
+    <aside class="col-12 col-lg side-content">
+        <h3 class="d-block fw-semibold fs-5 p-3" style="color: hsla(0, 1%, 48%, 0.973); text-align: end;">News</h3>
+        <div class="container-fluid news !direction !spacing">
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} border-bottom">
+                <h5>Up comming event</h5>
+                <p class="lead">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <a href="#" class="news-link">Know More.</a>
+                </p>
+            </div>
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} border-bottom">
+                <h5>New job application</h5>
+                <p class="lead">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing.
+                    <a href="#" class="news-link">Know More</a>
+                </p>
+            </div>
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} border-bottom">
+                <h5>Newly Added articles</h5>
+                <p class="lead">
+                    There are some articles had been added since the last time you logged in
+                    <a href="#" class="news-link">Know More</a>
+                </p>
+            </div>
+        </div>
+    </aside>
+</div>
+{% endblock %}

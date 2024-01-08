@@ -1,0 +1,515 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="/static/styles/home.css">
+{% endblock %}
+{% block body %}
+    <!-- header section -->
+    <div class="container-fluid header-container">
+        <div class="container-fluid body-section header">
+        <div class="col-12 col-md-6 header-title-col">
+            <h1 class="header-title">
+                Around <span class="hylight">431 million</span> Africans <span class="thick">are living below</span> extreme poverty 
+                <span class="thick">and</span> underprivileged
+                <br>
+                <span class="btop "><span class="thick">We're on a mission to</span> <span class="hylight">change</span> that.</span>
+            </h1>
+
+            <!-- <p class="header-text lead">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Nihil voluptas praesentium facilis?
+            </p> -->
+        </div>
+        <div class="col-md-6 header-side-image">
+            <div class="floating-item square hand-love">
+                <i class="fa-solid fa-hand-holding-heart fa-2xl" style="color: rgb(219, 58, 58);"></i>
+            </div>
+            <div class="floating-item shelter">
+                <i class="fa-solid fa-people-roof fa-2xl" style="color: #db3a3a;"></i>
+            </div>
+            <div class="floating-item education">
+                <i class="fa-solid fa-user-graduate fa-xl" style="color: #db3a3a;"></i>
+                <i class="fa-solid fa-user-graduate" style="color: #db3a3a;"></i>
+                <i class="fa-solid fa-user-graduate fa-xl" style="color: #db3a3a;"></i>
+            </div>
+            <div class="floating-item children">
+                <i class="fa-solid fa-baby fa-2xl" style="color: #db3a3a;"></i>
+                <!-- <i class="fa-solid fa-child-reaching fa-2xl" style="color: #db3a3a;"></i> -->
+                <!-- <i class="fa-solid fa-children fa-2xl" style="color: #db3a3a;"></i> -->
+                <i class="fa-solid fa-child-dress fa-2xl" style="color: #db3a3a;"></i>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- end header -->
+    <!-- programs and brief -->
+    <div class="container-fluid mb-4">
+        <section class="container-fluid body-section programs-breif ">
+            <div class="row programs">
+                <div class="col-sm-12 col-md-6 col-lg-3 program">
+                    <div class="program-card education_card">
+                        <div class="card-lable">
+                            <!-- <i class="fa-solid fa-book-open" style="color: #222326; width:90px; height:90px"></i> -->
+                            <img src="/static/images/icons/education.png" alt="book icon">
+                        </div>
+                        <div class="row">
+                            <h5 class="card-title">Read On</h5>
+                        </div>
+                        <div class="row">
+                            <h3 class="program-title main-headline">Education &amp; Youth Empowerment</h3>
+                        </div>
+                        <div class="row">
+                            <a href="{{url_for('articles', section='education')}}" class="card-link">Read More..</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3 program">
+                    <div class="program-card health_care">
+                        <div class="card-lable">
+                            <!-- <i class="fa-solid fa-briefcase-medical" style="color: #222326; width:90px; height:90px"></i> -->
+                            <img src="/static/images/icons/health.png" alt="medical icon">
+                        </div>
+                        <div class="row">
+                            <h5 class="card-title">Read On</h5>
+                        </div>
+                        <div class="row">
+                            <h3 class="program-title main-headline">Health Care &amp; Medical Aid</h3>
+                        </div>
+                        <div class="row">
+                            <a href="{{url_for('articles', section='health-care')}}" class="card-link">Read More...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3 program">
+                    <div class="program-card culture">
+                        <div class="card-lable">
+                            <!-- <i class="fa-solid fa-people-group" style="color: #222326; width:90px; height:90px"></i> -->
+                            <img src="/static/images/icons/culture.png" alt="culture icon">
+                        </div>
+                        <div class="row">
+                            <h5 class="card-title">Read On</h5>
+                        </div>
+                        <div class="row">
+                            <h3 class="program-title main-headline">Culture &amp; Heritage in Africa</h3>
+                        </div>
+                        <div class="row">
+                            <a href="{{url_for('articles', section='culture')}}" class="card-link">Read More...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3 program">
+                    <div class="program-card emergancy_relief">
+                        <div class="card-lable">
+                            <!-- <i class="fa-solid fa-house-chimney-crack" style="color: #222326; width:90px; height:90px"></i> -->
+                            <img src="/static/images/icons/crisis.png" alt="craked hose icon">
+                        </div>
+                        <div class="row">
+                            <h5 class="card-title">Read On</h5>
+                        </div>
+                        <div class="row">
+                            <h3 class="program-title main-headline">Emergancy Relief</h3>
+                        </div><br>
+                        <div class="row">
+                            <a href="{{url_for('articles', section='emergency-relief')}}" class="card-link">Read More...</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row breif">
+                <div class="col-sm-12 col-md-12 col-lg-6  breif-img">
+                    <img class="image_1" src="/static/images/brief_image.png"
+                    alt="people picture">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 breif-text">
+                    <h4 class="headline-bg">Welcome  to  OASD</h4>
+                    <h1 class="main-headline">We're on a mission to make the <span>change</span></h1>
+                    <p class="secondry-pargraph">
+                        The African Organization for Social Development (OASD) is a
+                        charitable organization that is non-profit, non-governmental,
+                        and non-discriminatory organization that was established in 2021 in Uganda.<br>
+                        <span>
+                            Our goal is to foster social and economic development for Africa's underprivileged
+                            and disadvantaged communities. We prioritize family, women, youth, and child safety
+                            issues, as well as inclusive and effective social protection systems.
+                        </span>
+                    </p>
+                    <a class="donate" href="{{ url_for('about_page') }}">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- recent articles cards -->
+    <div class="container-fluid recent-articles-container">
+    <section class="container-fluid body-section recent-articles">
+        <div class="row">
+            <h4 class="headline-bg">
+                Recently added
+            </h4>
+        </div>
+        <div class="row">
+            <h1 class="main-headline">
+            </h1>
+        </div>
+        <div class="row card-container">
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_education.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Knitting In Africa History
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-health">Health Care</h5>
+                    <img src="/static/artical_images/default_health.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Knitting In Africa History
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-culture">Culture</h5>
+                    <img src="/static/artical_images/default_culture.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Knitting In Africa History
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row"><a href="/causes" class="donate">Go to Articles</a></div>
+    </section>
+    </div>
+    <!-- end recent articles cards -->
+
+    <!-- focus aria section -->
+    <div class="container-fluid mt-4">
+        <section class="container-fluid body-section focus-goals-container">
+            <div class="row">
+                <h4 class="headline-bg">
+                    OASD Focus &amp; Goals
+                </h4>
+            </div>
+            <div class="row">
+                <h1 class="main-headline">
+                    We provide <span>comprehensive</span> services to those in need<br>
+                </h1>
+            </div>  
+            <div class="row goals-wraper">
+                <div class="card-element card-element-md">
+                    <div class="card-image slider-images">
+                        <div class="slider">
+                            <img src="/static/images/galary/image_1.jpg" alt="slide show image">
+                            <img src="/static/images/galary/image_2.jpg" alt="slide show image">
+                            <img src="/static/images/galary/image_3.jpg" alt="slide show image">
+                            <img src="/static/images/galary/image_4.jpg" alt="slide show image">
+                            <img src="/static/images/galary/image_5.jpg" alt="slide show image">
+                            <img src="/static/images/galary/image_6.jpg" alt="slide show image">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-heading">
+                           Our Mission
+                        </h3>
+                        <p class="card-text">
+                            To empower African citizens', families', and communities' 
+                            rights by promoting purposeful and responsive legislation, 
+                            stakeholder empowerment, good governance, and responsive 
+                            service delivery.
+                        </p>
+                    </div>
+                    <button class="donate text-center offset-1 mb-3" style="width: 80%;">Know More</button>
+                </div>
+                <div class="card-element card-element-md mission-wraper">
+                    <div class="mission-row">
+                        <div class="image">
+                            <img src="/static/images/icons/kids.png" alt="kids image">
+                        </div>
+                        <div class="card-element card-element-lg">
+                            <h3 class="main-headline">Children</h3>
+                            <p class="card-text">
+                                Women, youth, and child protection and empowerment througout
+                                Africa
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mission-row">
+                        <div class="image">
+                            <img src="/static/images/icons/famly.png" alt="famly image">
+                        </div>
+                        <div class="card-element card-element-lg">
+                            <h3 class="main-headline">Families</h3>
+                            <p class="card-text">
+                                Inclusive and effective social protection systems, which
+                                grantees Lorem ipsum dolor sit amet consectetur adipisicing.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mission-row">
+                        <div class="image">
+                            <img src="/static/images/icons/community.png" alt="communtiy image">
+                        </div>
+                        <div class="card-element card-element-lg">
+                            <h3 class="main-headline">Communities</h3>
+                            <p class="card-text">
+                                Humanitarian situations in conflicts and trafficking. lorem all
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    </div>
+    <!-- end focus aria section -->
+
+    <!-- [[feature to be added]] -->
+        <!-- image album slider -->
+        <!-- end image album slider -->
+    <!-- end the feature -->
+
+    <!-- partners scrolling bar -->
+    <!-- <div class="container-fluid mt-5">
+        <section class="container-fluid body-section partners-slider">
+            <div class="container-fluid logo-slider">
+                <div class="containre-fluid overflow">
+                    <div class="container-fluid logo-wraper">
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_4.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_5.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                    </div>
+                    <div class="container-fluid logo-wraper">
+                        <div>
+                            <img src="/static/images/partners/image_4.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_5.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_4.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_5.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> -->
+    <!-- end partners scrolling bar -->
+
+    <!-- Dircectors cards -->
+    <div class="container-fluid recent-articles-container mt-5">
+        <section class="container-fluid body-section directors-container">
+            <div class="row">
+                <h4 class="headline-bg">
+                    Meet Our Directors
+                </h4>
+            </div>
+        <div class="row card-container card-directors-container">
+            <div class="card-element card-director">
+                <div class="card-image director-image">
+                    <div class="img-wraper">
+                        <img src="/static/images/director_2.jpg" alt="Director profile">
+                    </div>
+                </div>
+                <div class="card-content director-content">
+                    <h3 class="director-name">
+                        Dr.Suad Abdalla
+                    </h3>
+                    <p class="director-info">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="director-contact">
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-linkedin fa-xl" style="color: inherit"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-square-twitter fa-lg" style="color: inherit"></i>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-square-facebook fa-xl" style="color: inherit"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-instagram fa-lg" style="color: inherit;"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element card-director">
+                <div class="card-image director-image">
+                    <div class="img-wraper">
+                        <img src="/static/images/director_1.jpg" alt="Article Image">
+                    </div>
+                </div>
+                <div class="card-content director-content">
+                    <h3 class="director-name">
+                        Mr.Mohamed Musa
+                    </h3>
+                    <p class="director-info">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="director-contact">
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-linkedin fa-xl" style="color: inherit"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-square-twitter fa-lg" style="color: inherit"></i>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-square-facebook fa-xl" style="color: inherit"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-instagram fa-lg" style="color: inherit;"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element card-director">
+                <div class="card-image director-image">
+                    <div class="img-wraper">
+                        <img src="/static/images/director_3.jpg" alt="Article Image">
+                    </div>
+                </div>
+                <div class="card-content director-content">
+                    <h3 class="director-name">
+                        Mrs.Faridah Kulumba
+                    </h3>
+                    <p class="director-info">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="director-contact">
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-linkedin fa-xl" style="color: inherit"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-square-twitter fa-lg" style="color: inherit"></i>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-square-facebook fa-xl" style="color: inherit"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">                                
+                                <i class="fa-brands fa-instagram fa-lg" style="color: inherit;"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </section>
+    </div>
+    <!-- end Dirictor cards -->
+{% endblock %}

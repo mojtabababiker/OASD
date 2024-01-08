@@ -1,0 +1,197 @@
+/*=======================================================
+                    header section
+=======================================================*/
+.header-container{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 374px;
+    background-image: url('/static/images/common_header.png');
+    background-position: center;
+    background-size: cover;
+}
+.header-title-container{
+    max-width: 80%;
+    padding: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: #fff;
+}
+.header-title{
+    padding: 15px;
+    padding-left: 0;
+    line-height: 1.5em;
+    font-size: 22px;
+    font-weight: 400;
+}
+.header-title span{
+    width: fit-content;
+    display: block;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 36px;
+    color: #fff;
+    box-shadow: inset 0px -18px 0px -5px rgba(255, 196, 0, 0.884);
+}
+.header-title a{
+    text-decoration: none;
+    color: #ffffffc4;
+    font-size: inherit;
+}
+
+/*=======================================================
+                    breif title section
+=======================================================*/
+.arrow{
+    display: inline-block;
+    width: 50px;
+}
+
+/*=======================================================
+                    breif section
+=======================================================*/
+.causes-container{
+    background-color: #f4f7fc;
+    padding: 80px 0;
+}
+.causes-container .secondry-pargraph{
+    max-height: 132px;
+    overflow: hidden;
+}
+.causes-container .secondry-pargraph::after{
+    content: "...";
+}
+.causes-brief{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cause-wraper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.cause-brief{
+    position: relative;
+    width: 45%;
+    min-height: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 85px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    border-radius: 15px;
+}
+.cause-logo{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.cause-logo img {
+    height: 100%;
+    max-height: 120px;
+}
+.cause-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    padding-top: 85px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 38px -3px #00000021;
+}
+.cause-info span{
+    opacity: 0.93;
+}
+.cause-info a {
+    min-width: fit-content;
+    background-color: #db3a3ab9;
+    color: inherit;
+    border: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 5px;
+}
+.education{
+    background-image: url('/static/images/education_image.png');
+}
+.health-care{
+    background-image: url('/static/images/health_care_image.png');
+}
+.culture{
+    background-image: url('/static/images/culture_image.png');
+}
+.crisis{
+    background-image: url('/static/images/emergncy_relief_image.png');
+}
+
+/*==========================================================
+                    recent articles section
+==========================================================*/
+.recent-articles-container{
+    position: relative;
+    background-color: #f4f7fc;
+    margin-bottom: 120px;
+    margin-top: 80px;
+    padding-bottom: -40px;
+}
+.recent-articles{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.card-container{
+    width: 100%;
+    position: relative;
+    left: auto;
+    top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    row-gap: 15px;
+}
+
+.recent-articles .donate {
+    width: fit-content;
+    padding: 10px 15px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+/*=======================================================
+                    media query
+=======================================================*/
+
+@media (max-width:868px) {
+    .cause-brief{
+        width: 100%;
+    }
+}

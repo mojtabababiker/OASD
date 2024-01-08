@@ -1,0 +1,190 @@
+/*=======================================================
+                    header section
+=======================================================*/
+.header-container{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 374px;
+    background-image: url('/static/images/common_header.png');
+    background-position: center;
+    background-size: cover;
+}
+.header-title-container{
+    max-width: 80%;
+    padding: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: #fff;
+}
+.header-title{
+    padding: 15px;
+    padding-left: 0;
+    line-height: 1.5em;
+    font-size: 22px;
+    font-weight: 400;
+}
+.header-title span{
+    width: fit-content;
+    display: block;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 36px;
+    color: #fff;
+    box-shadow: inset 0px -18px 0px -5px rgba(255, 196, 0, 0.884);
+}
+.header-title a{
+    text-decoration: none;
+    color: #ffffffc4;
+    font-size: inherit;
+}
+
+/*===================================================================
+                        contacts section
+===================================================================*/
+.contacts-information{
+    width: 80%;
+    margin: 80px auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.contacts-information > div:first-child{
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+}
+.contacts-information .headline-bg{
+    text-align: center;
+}
+.contact-media{
+    width: 70%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.address,
+.mail,
+.phone{
+    display: flex;
+    gap: 15px;
+    /* box-shadow: 0px 0px 38px -3px #00000021; */
+    border-radius: 15px;
+    margin: 20px;
+    margin-left: 0;
+    padding: 10px;
+    padding-left: 0;
+}
+.mail a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.5s ease-in-out;
+}
+.mail a:hover{
+    color: #db3a3a;
+}
+.contact-media * img{
+    object-fit: contain;
+    margin-right: 15px;
+}
+.contact-media .main-headline{
+    font-size: 38px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+.contact-media .secondry-pargrapy {
+    color: #bcbec2;
+    font-size: 22px;
+}
+
+.social-media{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:5px;
+    row-gap: 15px;
+    justify-content: flex-start;
+}
+
+.social-media * img {
+    margin: 0;
+    height: 50%;
+}
+.social-media * a{
+    font-size: 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.5s ease-in-out;
+}
+.social-media * .address:hover * a{
+    color: #db3a3a;
+}
+
+.social-media .main-headline {
+    font-size: 26px;
+    margin: 0;
+}
+
+.map-container{
+    width: 80%;
+    padding: 0;
+}
+
+
+.map{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 57.5%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 38px -3px #00000021;
+}
+.map iframe{
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*===================================================================
+                        meadi query
+====================================================================*/
+@media (max-width:967px){
+    .contact-media{
+        width: 100%;
+    }
+    .contact-media .main-headline{
+        font-size: 32px;
+        font-weight: 500;
+        opacity: 0.8;
+    }
+    .contact-media .secondry-pargrapy {
+        color: #bcbec2;
+        font-size: 18px;
+    }
+    .social-media > .main-headline{
+        width: 100%;
+        flex-shrink: 0;
+    }
+    .social-media{
+        flex-direction: row;
+    }
+    .social-media .address{
+        padding-left: 15px;
+    }
+}

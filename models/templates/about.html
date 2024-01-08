@@ -1,0 +1,305 @@
+{% extends 'base.html' %}
+{% block title %}
+About Us
+{% endblock %}
+
+{% block css_link %}
+<link rel="stylesheet" href="/static/styles/about.css">
+{% endblock %}
+
+{% block body %}
+<!-- header section -->
+<div class="container-fluid header-container">
+    <section class="container body-section header-title-container">
+        <h4 class="header-title">
+            <span>About Us</span>
+            <a class="header-link" href="{{url_for('home_page')}}">
+                Home  <i class="fa-solid fa-arrow-right-long fa-xs d-inline-block" style="color: #f2f2f2; text-align:center"></i>
+            </a> 
+            About
+        </h4>
+    </section>
+</div>
+<!-- end header section -->
+
+<!-- breif section -->
+<div class="container-fluid mb-4">
+    <section class="container-fluid body-section programs-breif ">
+        <div class="row breif">
+            <div class="col-sm-12 col-md-12 col-lg-6  breif-img">
+                <img class="image_1" src="/static/images/brief_image.png"
+                alt="people picture">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 breif-text">
+                <h4 class="headline-bg">Welcome  to  OASD</h4>
+                <h1 class="main-headline">We're on a mission to make the <span>change</span></h1>
+                <p class="secondry-pargraph">
+                    The African Organization for Social Development (OASD) is a
+                    charitable organization that is non-profit, non-governmental,
+                    and non-discriminatory organization that was established in 2021 in Uganda.<br>
+                    <span>
+                        Our goal is to foster social and economic development for Africa's underprivileged
+                        and disadvantaged communities. We prioritize family, women, youth, and child safety
+                        issues, as well as inclusive and effective social protection systems.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- end brief section -->
+<!-- vission and mission section -->
+<div class="container-fluid mt-4 vission-mission-container">
+    <section class="container-fluid body-section section-container">
+        <div class="vession">
+            <h4 class="headline-bg">Our Vision</h4>
+            <p class="secondry-pargraph">
+                Around <span>431 million</span> Africans on the continent are living
+                below the extreme poverty line and underprivileged, OASD vision is
+                the well-being of a society in which there is an established system
+                of social growth and citizens enjoy their social, political, and 
+                economic rights.
+            </p>
+            <img src="/static/images/vission.png" alt="represent vision">
+        </div>
+
+        <div class="mission">
+            <h4 class="headline-bg">Our Mission</h4>
+            <p class="secondry-pargraph">
+                To empower African citizens', families', and communities' rights by
+                promoting purposeful and responsive legislation, stakeholder empowerment, 
+                good governance, and responsive service delivery.<br>
+                We take a social development approach that includes empowering communities,
+                fostering peace and social justice, increasing access to public services,
+                combating prejudice, and establishing long-term income and economic
+                structures.
+            </p>
+        </div>
+    </section>
+</div>
+<!-- end visoin and mission -->
+
+<!-- Focus secction -->
+<div class="container-fluid">
+    <section class="container-fluid body-section focus-section">
+        <h4 class="headline-bg">Services &amp; Beneficiaries</h4>
+        <div class="focus-fileds-container">
+            <div class="focus-fields">
+                <div class="focus-wraper">
+                    <div class="focus-field">
+                        <div class="focus-img">
+                            <img src="/static/images/education.jpg" alt="education field image">
+                        </div>
+                        <div class="focus-info">
+                            <h4 class="main-headline"><span>Education</span></h4>
+                            <p class="secondry-pargraph">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa 
+                                laudantium dicta nulla nemo natus laborum voluptate recusandae quos!
+                            </p>
+                            <a href="/causes/education" class="donate p-2">Know More</a>
+                        </div>
+                    </div>
+                    <div class="focus-field">
+                        <div class="focus-img">
+                            <img src="/static/images/health_care.jpg" alt="education field image">
+                        </div>
+                        <div class="focus-info">
+                            <h4 class="main-headline"><span>Health Care</span></h4>
+                            <p class="secondry-pargraph">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa 
+                                laudantium dicta nulla nemo natus laborum voluptate recusandae quos!
+                            </p>
+                            <a href="/causes/education" class="donate p-2">Know More</a>
+                        </div>
+                    </div>
+                    <div class="focus-field">
+                        <div class="focus-img">
+                            <img src="/static/images/culture.jpg" alt="education field image">
+                        </div>
+                        <div class="focus-info">
+                            <h4 class="main-headline"><span>Culture</span></h4>
+                            <p class="secondry-pargraph">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa 
+                                laudantium dicta nulla nemo natus laborum voluptate recusandae quos!
+                            </p>
+                            <a href="/causes/education" class="donate p-2">Know More</a>
+                        </div>
+                    </div>
+                    <div class="focus-field">
+                        <div class="focus-img">
+                            <img src="/static/images/crisis.jpg" alt="education field image">
+                        </div>
+                        <div class="focus-info">
+                            <h4 class="main-headline"><span>Emergency</span> Relief</h4>
+                            <p class="secondry-pargraph">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa 
+                                laudantium dicta nulla nemo natus laborum voluptate recusandae quos!
+                            </p>
+                            <a href="/causes/education" class="donate p-2">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="focus-text">
+                <h4 class="main-headline">Beneficiaries</h4>
+                <p class="secondry-pargraph">
+                    Our programs and activities are designed to benefit children,
+                     families, and communities in need throughout Africa.<br>
+                    We provide  comprehensive services to those in need, regardless                 
+                    of race, religion, or background.
+                </p>
+                <div>
+                    <h4 class="main-headline">Our Focus</h4>
+                    <ul class="focus-list">
+                        <li class="secondry-pargraph">
+                            <span></span> Family, women,youth and child protection and empowerment.
+                        </li>
+                        <li class="secondry-pargraph">
+                            <span></span> Inclusive and effective social protection systems.
+                        </li>
+                        <li class="secondry-pargraph">
+                            <span></span> Humanitarian situations in conflicts and trafficking
+                        </li>
+                    </ul>
+                    <h4 class="main-headline mt-4">Our Values</h4>
+                    <ul class="focus-list">
+                        <li class="secondry-pargraph">
+                            <span></span> Empowerment.
+                        </li>
+                        <li class="secondry-pargraph">
+                            <span></span> Peace And Justice
+                        </li>
+                        <li class="secondry-pargraph">
+                            <span></span> Equality
+                        </li>
+                        <li class="secondry-pargraph">
+                            <span></span> Access to services
+                        </li>
+                        <li class="secondry-pargraph">
+                            <span></span> Sustanabilty
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- end Focus section-->
+<!-- directors section -->
+<div class="container-fluid directors-container">
+    <section class="container-fluid body-section director-section">
+        <h4 class="headline-bg">Meet Our Directors</h4>
+        <div class="director">
+            <div class="director-image">
+                <img src="/static/images/director_2.jpg" alt="director image">
+            </div>
+            <div class="director-profile">
+                <h4 class="directo-name">Dr.Suad Abdalla</h4>
+                <p class="secondry-pargraph">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     Deleniti aliquid ratione eos tempore, illo iusto, eveniet impedit 
+                    illum totam laboriosam alias deserunt enim similique exercitationem.
+                </p>
+                <ul class="director-contact">
+                    <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-linkedin fa-xl" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-square-twitter fa-lg" style="color: inherit"></i>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-square-facebook fa-xl" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-instagram fa-lg" style="color: inherit;"></i>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="director">
+            <div class="director-image">
+                <img src="/static/images/director_1.jpg" alt="director image">
+            </div>
+            <div class="director-profile">
+                <h4 class="directo-name">Mr.Mohamed Musa</h4>
+                <p class="secondry-pargraph">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     Deleniti aliquid ratione eos tempore, illo iusto, eveniet impedit
+                </p>
+                <ul class="director-contact">
+                    <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-linkedin fa-xl" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-square-twitter fa-lg" style="color: inherit"></i>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-square-facebook fa-xl" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-instagram fa-lg" style="color: inherit;"></i>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="director">
+            <div class="director-image">
+                <img src="/static/images/director_3.jpg" alt="director image">
+            </div>
+            <div class="director-profile">
+                <h4 class="directo-name">Mrs.Faridah Kulumba</h4>
+                <p class="secondry-pargraph">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     Deleniti aliquid ratione eos tempore, illo iusto, eveniet impedit 
+                    illum totam laboriosam alias deserunt enim similique exercitationem
+                    Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <ul class="director-contact">
+                    <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-linkedin fa-xl" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-square-twitter fa-lg" style="color: inherit"></i>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-square-facebook fa-xl" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" target="_blank" rel="noopener noreferrer">                                
+                            <i class="fa-brands fa-instagram fa-lg" style="color: inherit;"></i>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- end of directors -->
+
+{% endblock %}
+
+{% block js_link %}
+
+{% endblock %}

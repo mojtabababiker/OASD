@@ -1,0 +1,44 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+    max-width: 430px;
+}
+.profile-img-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #5e5c5c;
+}
+
+.profile-img{
+    width: 300px;
+    height: 300px;
+    display: block;
+    border: none;
+    border-radius: 50%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: hsla(0, 0%, 0%, 0.781);
+}
+.form-container{
+    width: 100%;
+    min-width: 540px;
+}
+
+@media (max-width: 540px){
+    .form-container{
+        min-width: 0px;
+    }
+}
+
+.passwd{
+    display: none;
+}

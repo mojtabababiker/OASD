@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block extra_links %}
+<link rel="stylesheet" href="/static/styles/home.css">
+{% endblock %}
+{% block title %}
+Home-Page
+{% endblock %}
+{% block home_msg %}
+<div class="container-fluid top-header">
+    <div class="container">
+        <div class="row align-items-md-center justify-content-between px-2">
+            <div class="col-12 col-md-7 col-lg-6 position-relative">
+                <div class="lc-block mb-4">
+                    <div class="title-container">
+                        <h1 class="display-1">African Organization for Social Development</h1>
+                        <p class="lead">Aenean vel nisi in ipsum congue fermentum et ut arcu. Proin leo diam, vulputate eu tellus ac, mattis cursus nunc. Aenean vel nisi in ipsum congue fermentum et ut arcu. Proin leo diam, vulputate eu tellus ac, mattis cursus nunc.</p>
+                    </div>
+                </div>
+            </div><!-- /col -->
+            <div class="col-12 col-md-7 col-lg-6">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block main_content %}
+<div class="container recent-article position-relative">
+    <h2 class="d-block text-center text-capitalize p-0 mb-2 mt-5">Recents Programs and Events</h2>
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 pt-2">
+    {% for artical in articals %}
+    <div class="card col-12 col-lg-4 artical">
+        <div class="card-img-container">
+            <a class="text-decoration-none p-0 m-0" href="/article/{{ artical.id }}" target="_blank" rel="noopener noreferrer">
+                <img src="/static/artical_images/{{ artical.image_path }}"
+                 class="card-img-top" style="size: contain;" alt="...">
+            </a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ artical.title }}</h5>
+            <p class="card-text">{{ artical.content_breif }}</p>
+        </div>
+        <div class="card-footer g-0">
+            <p class="lead m-0">
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                {{ artical.date }}
+            </p>
+            <p class="lead m-0">
+                <i class="fa fa-user-md" aria-hidden="false"></i>
+                <a href="/about/{{ artical.admin_id }}"
+                    class="text-decoration-none text-end" style="color: #212529;">
+                    {{ artical.admin.first_name }}
+                </a>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <button class="btn btn-outline btn-sm" id="all_articles_btn" href="/articles">All Articles</button>
+</div>
+<!-- programs section -->
+<div class="container">
+    <!-- programs header titel -->
+    <div class="row mb-5 align-items-center justify-content-center">
+        <h2 class="programs-title col-7 display-5 text-center bg-light  p-0 pb-3">OASD Programs</h2>
+        <p class="lead pt-1">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora soluta natus, beatae modi repellat autem assumenda corrupti porro.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum veritatis suscipit, aut cumque quisquam itaque dolores saepe eligendi natus iusto?
+        </p>
+    </div>
+    <!-- programs topics -->
+	<div class="row mb-4 align-items-center">
+		<div class="col-lg-6 mb-4 mb-lg-0">
+			<div class="lc-block text-center">
+				<img class="img-fluid " src="/static/images/education_image.png" loading="lazy">
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+		<div class="col-lg-6 p-lg-6">
+			<div class="lc-block mb-5">
+				<div>
+					<h2 class="display-6">Education</h2>
+					<p class="lead">
+                    <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus est. Etiam diam metus.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at adipisci eaque corrupti nam corporis,
+                     sequi mollitia labore, odio aut quaerat pariatur iure officia exercitationem sed ipsa earum! Inventore, nulla.
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, et.
+                    </p>
+				</div>
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+	</div>
+	<div class="row mb-4 align-items-center">
+		<div class="col-lg-6 mb-4 mb-lg-0 order-lg-1">
+			<div class="lc-block text-center"><img class="img-fluid" src="/static/images/health_care_image.png" width="400" height="400" loading="lazy"></div><!-- /lc-block -->
+		</div><!-- /col -->
+		<div class="col-lg-6 p-lg-6">
+			<div class="lc-block mb-5">
+				<div editable="rich">
+
+					<h2 class="display-6">Health Care</h2>
+
+					<p class="lead"><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus est. Etiam diam metus.</p>
+				</div>
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+	</div>
+	<div class="row mb-4 align-items-center">
+		<div class="col-lg-6 mb-4 mb-lg-0">
+			<div class="lc-block text-center">
+				<img class="img-fluid " src="/static/images/culture_image.png" loading="lazy">
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+		<div class="col-lg-6 p-lg-6">
+			<div class="lc-block mb-5">
+				<div>
+					<h2 class="display-6">Culture</h2>
+					<p class="lead"><br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus est. Etiam diam metus.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem soluta vel quibusdam reprehenderit 
+                        est mollitia delectus fuga beatae porro dolore?
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit est pariatur laborum similique nesciunt eligendi cupiditate!
+                    </p>
+				</div>
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+	</div>
+	<div class="row mb-4 align-items-center">
+		<div class="col-lg-6 mb-4 mb-lg-0 order-lg-1">
+			<div class="lc-block text-center"><img class="img-fluid" src="/static/images/emergncy_relief_image.png"  loading="lazy"></div><!-- /lc-block -->
+		</div><!-- /col -->
+		<div class="col-lg-6 p-lg-6">
+			<div class="lc-block mb-5">
+				<div editable="rich">
+
+					<h2 class="display-6">Emergancy Relief</h2>
+
+					<p class="lead">
+                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus est. Etiam diam metus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora commodi sint repudiandae voluptates eius fuga expedita 
+                        ipsum voluptas? Maxime enim et aperiam ullam ex eos, fuga vel deleniti. Enim, quaerat!
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque a veniam eaque voluptatem at ea dignissimos dolorum, quisquam laborum exercitationem animi 
+                        quidem corrupti? Similique pariatur sapiente fugit rerum! Quis, consequatur.
+                    </p>
+				</div>
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+	</div>
+
+</div>
+ 
+{% endblock %}
+ 
+ 
+  

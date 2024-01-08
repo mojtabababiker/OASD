@@ -1,0 +1,359 @@
+{% extends 'base.html' %}
+{% block title %}
+Causes-Education
+{% endblock %}
+
+{% block css_link %}
+<link rel="stylesheet" href="/static/styles/cause_section.css">
+<link rel="stylesheet" href="/static/styles/education.css">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock %}
+
+{% block body %}
+<!-- header section -->
+<div class="container-fluid header-container">
+    <section class="container body-section header-title-container">
+        <h4 class="header-title">
+            <span>Causes</span>
+            <a class="header-link" href="{{url_for('home_page')}}">
+                Home  <i class="fa-solid fa-arrow-right-long fa-xs d-inline-block" style="color: #f2f2f2; text-align:center"></i>
+            </a> 
+            <a class="header-link" href="{{url_for('articles')}}">
+                Causes  <i class="fa-solid fa-arrow-right-long fa-xs d-inline-block" style="color: #f2f2f2; text-align:center"></i>
+            </a> 
+            Education
+        </h4>
+    </section>
+</div>
+<!-- end header -->
+<!-- cause brief section -->
+<div class="container-fluid mt-5">
+    <section class="container-fluid body-section causes-brief">
+        <div class="row">
+            <h4 class="headline-bg">Our Programs</h4>
+        </div>
+        <div class="brief-contents">
+            <h1 class="main-headline">
+                To <span>Empower</span> African citizens', families'<br> 
+                and communities' rights
+            </h1>
+           <h2>
+                OASD focus on many programs and social services including 
+                `but not concluded to` <img class="arrow" src="/static/images/icons/right-arrow.png" alt="">
+           </h2>
+        </div>
+    </section>
+</div>
+<!-- end cause breif -->
+<hr>
+<!-- cause information section -->
+<div class="container-fluid mt-5">
+    <section class="container-fluid body-section cause-title-container">
+        <h4 class="headline-bg">Education</h4>
+        <section class="container-fluid  cause-information-section">
+            <div class="cause-detials">
+                <button type="button" class="swiper" id="swip-left"><i class="fa-solid fa-angle-left fa-lg" style="color: rgb(219, 58, 58);" aria-hidden="true"></i></button>
+                <div class="cause-slider">
+                    <div class="cause-slide" id="slide-1">
+                        <p class="secondry-pargraphw">
+                            <span>EDUCATION is at the forefront of our African development agenda,
+                             aiming to expand understanding and foster dialogue</span>
+                        </p>
+                    </div>
+                    <div class="cause-slide" id="slide-2">
+                        <p class="secondry-pargraphw">
+                            <span>We in OASD are committed to providing a trusted platformfor planning and 
+                            building enduring partnerships among local communities, states, 
+                            civil society, andinternational organizations</span>
+                        </p>
+                    </div>
+                    <div class="cause-slide" id="slide-3">
+                        <p class="secondry-pargraphw">
+                            <span>Our focus is on delivering basic and necessary services with a special emphasis 
+                            on a social protection approach</span>
+                        </p>
+                    </div>
+                    <div class="cause-slide" id="slide-4">
+                        <p class="secondry-pargraphw">
+                            <span>Through comprehensive and inclusivesocial protection initiatives, 
+                            we seek to reduce poverty, vulnerability, and inequality While increasing resilience to 
+                            risks and promoting access to services and the labor market</span>
+                        </p>
+                    </div>
+                    <div class="cause-slide" id="slide-5">
+                        <p class="secondry-pargraphw">
+                            <span>We believe that education is a key driver for sustainable development, empowering 
+                            individuals and communities to thrive in an ever-evolving world.</span>
+                        </p>
+                    </div>
+                </div>
+                <button type="button" class="swiper" id="swip-right"><i class="fa-solid fa-angle-right fa-lg" style="color: rgb(219, 58, 58);" aria-hidden="true"></i></button>
+            </div>
+            <div class="brief-content">
+                <h1 class="main-headline">
+                    <span>Education</span> is the cornerstone of individual and societal development
+                </h1>
+               <h2>
+                providing the necessary knowledge and skills for personal growth and societal progress.
+                It empowers individuals tocontribute meaningfully to their communities and 
+                adapt to an ever-changing world.
+               </h2>
+            </div>
+        </section>
+    </section>
+    
+
+    </section>
+</div>
+<!-- end cause information section -->
+<!-- articles section -->
+<div class="container-fluid recent-articles-container">
+    <section class="container-fluid body-section recent-articles">
+        <div class="row">
+            <h4 class="headline-bg">
+                Trending Topics
+            </h4>
+        </div>
+        <div class="row">
+            <h1 class="main-headline">
+            </h1>
+        </div>
+        <div class="row card-container">
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_crisis.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        City is Drained Out of Life Source
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_health.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Cholera is Eating Blue Nile State a Life
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_culture.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Knitting In Africa History
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row card-container">
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_crisis.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        City is Drained Out of Life Source
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_health.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Cholera is Eating Blue Nile State a Life
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_culture.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Knitting In Africa History
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row card-container">
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_crisis.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        City is Drained Out of Life Source
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_health.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Cholera is Eating Blue Nile State a Life
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-element">
+                <div class="card-image">
+                    <h5 class="section section-education">Education</h5>
+                    <img src="/static/artical_images/default_culture.jpg" alt="Article Image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-heading">
+                        Knitting In Africa History
+                    </h3>
+                    <p class="card-text ">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Est veniam at ullam provident sit aperiam, quos repudiandae?
+                    </p>
+                    <ul class="card-info">
+                        <li>
+                            <i class="fa-solid fa-calendar-day" style="color: inherit;"></i>
+                            <br><strong>Date:</strong>22-Dec, 2023
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-handshake-angle" style="color: inherit;"></i>
+                            <br><strong>With:</strong> UN Organization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row"><button class="donate" id="trending-topics">Load More</button></div>
+    </section>
+</div>
+<!-- end articels -->
+{% endblock %}
+{% block js_link %}
+<script src="/static/script/cause_section.js"></script>
+{% endblock %}

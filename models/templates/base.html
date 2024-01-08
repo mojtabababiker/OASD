@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/images/icons/favicon.png" type="image/x-icon">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+
+    <link href="https://fonts.cdnfonts.com/css/campton" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/styles/base.css">
+                
+    {% block css_link %}
+    {% endblock %}
+</head>
+<body>
+    <!-- contact bar -->
+    <div class="container-fluid" style="border-bottom:  1px solid #00000021;">
+        <div class="container-fluid contacts-bar">
+            <div class="row align-items-center">
+                <ul class="contacts col-lg-8 col-md-8">
+                    <li class="contact-item">
+                        <a href="mailto:Hello@oasd.africa">
+                            <i class="fa-solid fa-envelope fa-sm" style="color: #424155;"></i>
+                            Hello@oasd.africa
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="#">
+                            <i class="fa-solid fa-phone fa-sm" style="color: #424155;"></i>
+                            +256 741 230000
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="https://www.google.com/maps/place/2745+Tank+Hill+Rd,+Kampala,+Uganda/@0.293286,32.617644,17z/data=!4m5!3m4!1s0x177dbc253dbbfd79:0x87459690d20ed429!8m2!3d0.2932855!4d32.6176438?hl=en&entry=ttu"
+                            target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-location-dot fa-sm" style="color: #424155;"></i>
+                            Uganda-Kampala-Nakawa, 2745 Tankhill Rd
+                        </a>
+                    </li>
+                </ul>
+                <ul class="contacts contacts-right col-lg-4 col-md-4 pt-3 p-lg-0">
+                    <li class="contact-item">
+                        <a href="#">
+                            <i class="fa-brands fa-instagram" style="color: inherit;"></i>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="#">
+                            <i class="fa-brands fa-square-facebook" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="#">
+                            <i class="fa-brands fa-square-twitter" style="color: inherit"></i>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin" style="color: inherit"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end of contact bar -->
+    <!-- nav-bar top -->
+    <div class="container-fluid nav-bar-container">
+        <div class="container-fluid nav-bar">
+            <div class="row align-items-center position-relative p-0">
+                <div class="col col-xl-2 navlogo">
+                    <!-- <img class="nav-logo" src="/static/images/navbar_logo.png" alt="navbar logo" style="width:60px;"> -->
+                    <a class="nav-brand" href="{{ url_for('home_page') }}"><img src="/static/images/icons/navbar_logo.png" alt=""></a>
+                </div>
+                <div class="nav-collapse-btn col-2 col-md-1 order-2">
+                    <button class="collapse-btn" id="collapse-nav-btn">
+                        <svg class="svg-inline--fa fa-bars fa-2xl" id="open-nav" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="bars" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                data-fa-i2svg="">
+                                <path 
+                                    fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
+                                </path>
+                        </svg>
+                        <svg class="svg-inline--fa fa-xmark fa-2xl" id="close-nav"
+                            aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512" data-fa-i2svg="">
+                            <path 
+                                fill="currentColor"d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="col-lg-8 nav justify-content-center nav-collapse-md" id="nav-bar">
+                    <div class="col">
+                        <a href="#" class="nav-link">Home</a>
+                    </div>
+                    <div class="col">
+                        <a href="{{url_for('articles')}}" class="nav-link">Causes</a>
+                        <ul class="popover">
+                            <li class="popover-item">
+                                <a class="nav-link popover-item" href="{{url_for('articles', section='education')}}">Education</a>
+                            </li>
+                            <li class="popover-item">
+                                <a class="nav-link popover-item" href="{{url_for('articles', section='health-care')}}">Health Care</a>
+                            </li>
+                            <li class="popover-item">
+                                <a class="nav-link popover-item" href="{{url_for('articles', section='culture')}}">Culure</a>
+                            </li>
+                            <li class="popover-item">
+                                <a class="nav-link popover-item" href="{{url_for('articles', section='emergency-relief')}}">Emergency Relief</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="nav-link">Join us</a>
+                        <ul class="popover">
+                            <li class="popover-item">
+                                <a href="#" class="nav-link popover-item">Become Volunteer</a>
+                            </li>
+                            <li class="popover-item">
+                                <a href="#" class="nav-link popover-item">Recent Job Offers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <a href="{{url_for('about_page')}}" class="nav-link">About</a>
+                        <ul class="popover">
+                            <li>
+                                <a href="{{url_for('about_page', id='about-us')}}" class="nav-link popover-item">About OASD</a>
+                            </li>
+                            <li>
+                                <a href="{{url_for('about_page', id='our-partners')}}" class="nav-link popover-item">Our Partners</a>
+                            </li>
+                            <li>
+                                <a href="{{url_for('about_page', id='oasd-directors')}}" class="nav-link popover-item">OASD Directors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <a href="{{url_for('contacts_page')}}" class="nav-link">Contacts</a>
+                    </div>
+                </div>
+                <div class="nav-collapse-btn col-2 col-md-1">
+                    <button class="collapse-btn" id="collapse-search-btn">
+                        <i class="fa-solid fa-ellipsis fa-2xl" id="open-list" style="color: #db3a3a;"></i>
+                        <i class="fa-solid fa-ellipsis fa-rotate-90 fa-2xl" style="color: #db3a3a; display:none"></i>
+                    </button>
+                </div>
+                <div class="col-lg-2 nav-collapse-md search-nav" id="search-bar">
+                    <button class="search" id="search-icon">
+                        <i class="fa-solid fa-magnifying-glass fa-lg" style="color: rgb(219, 58, 58);"></i>
+                    </button>
+                    <button class="donate" id="search-btn">Search</button>
+                </div>
+                <div class="container-fluid search-form dnone" id="search-form">
+                    <div class="close-search" id="close-search">
+                        <i class="fa-solid fa-x fa-2xl" style="color: inherit;"></i>
+                    </div>
+                    <div class="form-group" id="form-group">
+                      <input type="text" class="form-control" name="text" id="search-text" aria-describedby="helpId" placeholder="Search">
+                      <input type="submit" value="Search" class="donate" id="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end nav-bar top-->
+
+    {% block body %}
+    {% endblock %}
+    <!-- partners section -->
+    <div class="container-fluid mt-5">
+        <section class="container-fluid body-section partners-slider">
+            <div class="container-fluid logo-slider">
+                <div class="containre-fluid overflow">
+                    <div class="container-fluid logo-wraper">
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                    </div>
+                    <div class="container-fluid logo-wraper">
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_1.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_2.png" alt="#" class="partner-img">
+                        </div>
+                        <div>
+                            <img src="/static/images/partners/image_3.png" alt="#" class="partner-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- end partners section -->
+
+    <div class="position-relative">
+        <!-- footer aria -->
+        <div class="container-fluid footer-container">
+            <!-- feedback aria -->
+            <div class="container-fluid feedback-container">
+                <div class="container-fluid feedback-aria">
+                    <div class="col-12 col-md-7">
+                        <h3 class="main-headline"><span>Share</span> Your Thoughts</h3>
+                        <p class="lead secondry-pargraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Necessitatibus neque eaque blanditii
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <form class="feedback-form" action="#">
+                            <!-- <label for="email-field">Email</label> -->
+                            <input class="form-control mb-3" type="email" name="email"
+                                    id="email-field" placeholder="Your Email">
+                            <!-- <label for="comment-field">Comment</label> -->
+                            <input class="form-control mb-3" type="text" name="comment"
+                                    id="comment-field" placeholder="Comment">
+                            <input class="feedback-send" type="button" value="Send">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- end feedback aria -->
+            <div class="container-fluid footer-aria">
+                <div class="row">
+                    <div class="col-12 col-md-6 mt-5 mt-md-0">
+                        <div class="row">
+                            <!-- <a class="nav-brand nav-brand-bottom" href="#">OASD</a> -->
+                            <a class="nav-brand nav-brand-bottom" href="{{ url_for('home_page') }}"><img src="/static/images/icons/navbar_logo.png" alt=""></a>
+                        </div>
+                        <div class="row">
+                            <p class="lead p-0 pt-md-3">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                 Quaerat maiores culpa praesentium error rem voluptatem laudantium 
+                                 exercitationem voluptas ipsum, est tempore deleniti 
+                                incidunt obcaecati vitae. Laborum, officiis asperiores!
+                            </p>
+                        </div>
+                        <div class="row">
+                            <ul class="location">
+                                <li class="location-info">
+                                    <strong>Address:</strong> Uganda-Kampala-Nakawa, 2745 Tankhill Rd
+                                </li>
+                                <li class="location-info">
+                                    <strong>Phone Number:</strong> +256 741 230000
+                                </li>
+                                <li class="location-info">
+                                    <strong>Email:</strong> Hello@oasd.africa
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h3 class="pt-3 pb-1">Quick Links</h3>
+                        <a href="#" class="nav-link nav-link-bottom">Programs &amp; Causes</a>
+                        <a href="#" class="nav-link nav-link-bottom">Projects</a>
+                        <a href="#" class="nav-link nav-link-bottom">Join Us</a>
+                        <!-- <a href="#" class="nav-link"></a> -->
+                        <!-- <a href="" class="nav-link"></a> -->
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h3 class="pt-3 pb-1">More Information</h3>
+                        <a href="{{url_for('about_page')}}" class="nav-link nav-link-bottom">About OASD</a>
+                        <a href="#" class="nav-link nav-link-bottom">Our Partners</a>
+                        <!-- <a href="#" class="nav-link"></a><a href="" class="nav-link"></a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid copy-right">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col align-content-center">
+                        <p class="fs-6 mb-0">Copyright © 2024 All Rights Reserved</p>
+                    </div>
+                    <div class="col col-md-4 justify-content-end align-content-center">
+                        <ul class="text-end mb-0">
+                            <li class="contact-item contact-item-footer">
+                                <a href="#">
+                                    <i class="fa-brands fa-instagram" style="color: inherit;"></i>
+                                </a>
+                            </li>
+                            <li class="contact-item contact-item-footer">
+                                <a href="#">
+                                    <i class="fa-brands fa-square-facebook" style="color: inherit"></i>
+                                </a>
+                            </li>
+                            <li class="contact-item contact-item-footer">
+                                <a href="#">
+                                    <i class="fa-brands fa-square-twitter" style="color: inherit"></i>
+                                </a>
+                            </li>
+                            <li class="contact-item contact-item-footer">
+                                <a href="#">
+                                    <i class="fa-brands fa-linkedin" style="color: inherit"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end footer aria -->
+    </div>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js" 
+    integrity="sha256-UnTxHm+zKuDPLfufgEMnKGXDl6fEIjtM+n1Q6lL73ok=" 
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="/static/script/base.js"></script>
+    {% block js_link %}
+    {% endblock %}
+</body>
+</html>

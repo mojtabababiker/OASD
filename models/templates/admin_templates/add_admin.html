@@ -1,0 +1,81 @@
+{% extends 'admin_templates/admin_base.html' %}
+{% block extra_links %}
+<link rel="stylesheet" href="/static/styles/add_admin.css">
+<script src="/static/script/add_admin.js" defer></script>
+{% endblock %}
+{% block title %}
+Admin-Login
+{% endblock %}
+{% block main_content %}
+<div class="container vh-100 vw-100 m-0">
+    <div class="row h-100 m-0">
+        <aside class="col-5 col-lg-3 d-none d-md-flex bg-dark align-items-center justify-content-center">
+            <h1 class="text-center text-light"> Add New <br>Admin</h1>
+        </aside>
+    
+        <main class="col-md-7 col-12 d-flex align-items-center justify-content-center">
+            <form method="post" action="{{ url_for('create_admin_page') }}"
+             class="form-register vw-100 p-5" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-floating p-3">
+                    {{ form.first_name(class='form-control') }}
+                    {{ form.first_name.label(for=('first_name')) }}
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.last_name(class='form-control') }}
+                    {{ form.last_name.label(for=('last_name')) }}
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.email_address(class=('form-control')) }}
+                    {{ form.email_address.label(for=('email_address')) }}
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.password(class='form-control') }}
+                    {{ form.password.label(for=('password')) }}
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.confirm_password(class='form-control') }}
+                    {{ form.confirm_password.label(for=('confirm_password')) }}
+                </div>
+                <div class="mt-4">
+                    {{ form.profile_img(class=('form-control'), accept=('image/*'))}}
+                </div>
+                <div class="align-content-center justify-content-center border-bottom">
+                    <a class="social-media-btn nav-link" id="social-media-btn">
+                        Personal contact
+                        <i class="fa-solid fa-angle-down fa-sm" id="fa-down" style="color: #232529; display:block"></i>
+                        <i class="fa-solid fa-angle-right fa-sm" id="fa-right" style="color: #232529; display:none"></i>
+                    </a>
+                    <div class="social-media" id="social-media">
+                        <div class="account form-floating p-3">
+                            {{ form.facebook_account(class='form-control', placeholder=('Facebook Account')) }}
+                            <label for="facebook_account">
+                                <i class="fa-brands fa-square-facebook fa-2xl"></i>
+                            </label>
+                        </div>
+                        <div class="account form-floating p-3">
+                            {{ form.insta_account(class='form-control', placeholder=('Instagram Account')) }}
+                            <label for="insta_account">
+                                <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                            </label>
+                        </div>
+                        <div class="account form-floating p-3">
+                            {{ form.x_account(class='form-control', placeholder=('Twitter Account')) }}
+                            <label for="x_account">
+                                <i class="fa-brands fa-square-x-twitter fa-2xl"></i>
+                            </label>
+                        </div>
+                        <div class="form-floating p-3">
+                            {{ form.phone_num(class='form-control') }}
+                            {{ form.phone_num.label(for=('phone_num')) }}
+                        </div>
+                    </div>
+                    <div class="form-floating p-3">
+                        {{ form.submit(class=('btn btn-primary'), value="Sign Up") }}
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+{% endblock %}

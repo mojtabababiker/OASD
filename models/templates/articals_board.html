@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block extra_links %}
+<link rel="stylesheet" href="/static/styles/articles_board.css">
+{% endblock %}
+{% block title %}
+Articles and Events
+{% endblock %}
+
+{% block home_msg %}
+<div class="container-fluid top-header">
+    <div class="container">
+        <div class="row align-items-md-center justify-content-between px-2">
+            <div class="col-12 col-md-5 col-lg-3">
+                <div class="lc-block mb-4">
+                    <div editable="rich">
+                        <h1 class="display-5">African Organization for Social Development</h1>
+                        <p class="lead">Aenean vel nisi in ipsum congue fermentum et ut arcu. Proin leo diam, vulputate eu tellus ac, mattis cursus nunc. Aenean vel nisi in ipsum congue fermentum et ut arcu. Proin leo diam, vulputate eu tellus ac, mattis cursus nunc.</p>
+                    </div>
+                </div>
+            </div><!-- /col -->
+        </div>
+    </div>
+</div>
+<div class="container main-content">
+    <!-- recent articles sidbar -->
+    <aside class="col-12 col-md-3 order-1 recent-articles">
+
+    </aside>
+    <!-- main artice content -->
+    <main class="col-12 col-md-9 main-article">
+        <h1 class="article_title">
+            {{article.titlee}}
+        </h1>
+        <h3>By 
+            <a class="text-decoration-none text-dark-emphasis" href="/about/{{artical.admin}}" target="_blank" rel="noopener noreferrer">
+                {{artical.admin}}
+            </a>
+        </h3>
+        <hr>
+
+        <br>
+        <div class="container article-content">
+            {% include '{{artical.parse()}}' %}
+        </div>
+    </main>
+</div>
+{% endblock %}

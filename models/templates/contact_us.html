@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact Us
+{% endblock %}
+{% block css_link %}
+<link rel="stylesheet" href="/static/styles/contact.css"><li></li>
+{% endblock %}
+
+{% block body %}
+<!-- header section -->
+<div class="container-fluid header-container">
+    <section class="container body-section header-title-container">
+        <h4 class="header-title">
+            <span>Contact Us</span>
+            <a class="header-link" href="{{url_for('home_page')}}">
+                Home  <i class="fa-solid fa-arrow-right-long fa-xs d-inline-block" style="color: #f2f2f2; text-align:center"></i>
+            </a> 
+            Contact Us
+        </h4>
+    </section>
+</div>
+<!-- end header section -->
+<div class="container-fluid">
+    <section class="container-fluid body-section contacts-information">
+        <div>
+            <h4 class="headline-bg">Let's Get in Touch</h4>
+        </div>
+        <div class="container-fluid contact-media">
+            <div class="address">
+                <img src="/static/images/icons/map_icon.png" alt="">
+                <div class="info">
+                    <h4 class="main-headline">Location</h4>
+                    <p class="secondry-pargrapy">
+                        Uganda-Kampala-Nakawa , 2745 Tankhill Rd
+                    </p>
+                </div>
+            </div>
+            <div class="mail">
+                <img src="/static/images/icons/mail_icon.png" alt="">
+                <div class="info">
+                    <h4 class="main-headline">Email Address</h4>
+                    <p class="secondry-pargrapy">
+                        <a href="mailto:Hello@oasd.africa">Hello@oasd.africa</a>
+                    </p>
+                </div>
+            </div>
+            <div class="phone">
+                <img src="/static/images/icons/phone_icon.png" alt="">
+                <div class="info">
+                    <h4 class="main-headline">Phone Number</h4>
+                    <p class="secondry-pargrapy">
+                        +256 741 230000
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid social-media">
+            <h4 class="main-headline">You can <span>REACH US</span> on:</h4>
+            <div class="address">
+                <img src="/static/images/icons/facebook.png" alt="">
+                <div class="info">
+                    <h4 class="main-headline">Facebook</h4>
+                    <p class="secondry-pargrapy">
+                        <a href="#">oasd-africa</a>
+                    </p>
+                </div>
+            </div>
+            <div class="address">
+                <img src="/static/images/icons/linkedin-logo.png" alt="">
+                <div class="info">
+                    <h4 class="main-headline">LinkedIn</h4>
+                    <p class="secondry-pargrapy">
+                        <a href="#">@africa.oasd</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid body-section map-container">
+        <div class="container-fluid map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7660477576765!2d32.61506887577265!3d0.2932908640590397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc253dbbfd79%3A0x87459690d20ed429!2s2745%20Tank%20Hill%20Rd%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2seg!4v1704401025416!5m2!1sen!2seg" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+
+{% block js_link %}
+
+{% endblock %}

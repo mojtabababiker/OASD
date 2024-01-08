@@ -1,0 +1,318 @@
+/*=======================================================
+                    header section
+=======================================================*/
+.header-container{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 374px;
+    background-image: url('/static/images/common_header.png');
+    background-position: center;
+    background-size: cover;
+}
+.header-title-container{
+    max-width: 80%;
+    padding: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: #fff;
+}
+.header-title{
+    padding: 15px;
+    padding-left: 0;
+    line-height: 1.5em;
+    font-size: 22px;
+    font-weight: 400;
+}
+.header-title span{
+    width: fit-content;
+    display: block;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 36px;
+    color: #fff;
+    box-shadow: inset 0px -18px 0px -5px rgba(255, 196, 0, 0.884);
+}
+.header-title a{
+    text-decoration: none;
+    color: #ffffffc4;
+    font-size: inherit;
+}
+
+/*====================================================================
+                        brief section
+=====================================================================*/
+.programs-breif {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    margin-top: 120px;
+    padding: 0;
+}
+.programs,
+.breif {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    row-gap: 70px;
+    /* column-gap: 10%; */
+}
+.breif-img{
+    position: relative;
+    border: 2px solid #fff;
+    overflow: hidden;
+}
+.image_1{
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+}
+
+.breif-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.breif-text p span{
+    color: #424155de;
+}
+
+.breif-text button{
+    width: 140px;
+}
+
+/*=====================================================================
+                    vession and mission section
+======================================================================*/
+.vession-mission-container{
+    position: relative;
+    background-color: #f4f7fc;
+}
+.section-container{
+    width: 80%;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: space-between;
+    justify-content: space-between;
+    /* row-gap: 25px; */
+    background-color: transparent;
+}
+
+.vession,
+.mission{
+    width: 45%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    row-gap: 40px;
+}
+.vession img{
+    padding-top: 20px;
+    width: 100%;
+}
+
+/*=====================================================================
+                        focus field
+======================================================================*/
+.focus-section{
+    width: 80%;
+    padding-bottom: 15px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 20px;
+}
+.focus-fileds-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.focus-fields{
+    width: 40%;
+    min-width: 300px;
+    height: fit-content;
+    padding: 15px;
+    border: 1px solid #00000021;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 10px;
+    overflow: hidden;
+}
+.focus-wraper{
+    display: flex;
+    height: max-content;
+    padding-bottom: 15px;
+    overflow: hidden;
+    gap: 15px;
+}
+.focus-img{
+    width: 100%;
+}
+.focus-field{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: slide 30s ease-in-out 1s infinite;
+}
+
+.focus-img img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.focus-text{
+    width: 60%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.focus-text * {
+    width: 100%;
+}
+.focus-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.focus-list * span{
+    padding-left: 40px;
+    text-align: center;
+    margin-right: 7px;
+    background-image: url('/static/images/bg-1.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: visible;
+}
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+    }
+    10% {
+        transform: translateX(0%);
+    }
+    20% {
+        transform: translateX(0%);
+    }
+    30%{
+        transform: translateX(calc(-100% - 15px));
+    }
+    40% {
+        transform: translateX(calc(-100% - 15px));
+    }
+    50% {
+        transform: translateX(calc(-100% - 15px));
+    }
+    60% {
+        transform: translateX(calc(-200% - 30px));
+    }
+    70% {
+        transform: translateX(calc(-200% - 30px));
+    }
+    80% {
+        transform: translateX(calc(-300% - 45px));
+    }
+    90% {
+        transform: translateX(calc(-300% - 45px));
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/*=====================================================================
+                        direcors section
+======================================================================*/
+.directors-container{
+    background-color: #f4f7fc;
+}
+.director-section{
+    width: 80%;
+    margin-top: 80px;
+    margin-bottom: 120px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.director{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.director-image{
+    width: 30%;
+}
+.director-image img{
+    width: 100%;
+    border-radius: 50%;
+}
+.director-profile{
+    width: 70%;
+    padding-left: 15px;
+}
+
+/*=====================================================================
+                        media query
+======================================================================*/
+@media (max-width:1048px){
+    .header-container{
+        background-position: center;
+    }
+}
+@media (max-width:991px){
+    .vession,
+    .mission {
+        width: 100%;
+        min-height: max-content;
+    }
+    .vession-mission-container{
+        margin-bottom: 100px;
+    }
+}
+@media (max-width:1098px){
+    .focus-fields{
+        width: 100%;
+    }
+    .focus-text{
+        width: 100%;
+    }
+}
+
+@media (max-width:970px){
+    .director-profile{
+        padding-top: 15px;
+    }
+    .director-profile h4{
+        text-align: center;
+    }
+}

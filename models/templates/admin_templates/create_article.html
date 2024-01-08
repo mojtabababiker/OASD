@@ -1,0 +1,43 @@
+{% extends 'admin_templates/dash_boardBase.html' %}
+{% block title %}
+{% endblock %}
+{% block main_content %}
+<!-- ADD THE CRFS AS HIDDEN ELEMENT ON THE FORM -->
+<div class="container m-auto align-content-center justify-content-center ">
+    <form class="container g-3 needs-validation" style="max-width: 640px" 
+          action="/create_article" method="POST" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+        <!-- title input -->
+        <div class="form-floating mt-5" style="color:black;">
+            {{ form.title(class=('form-control'), id=('title')) }}
+            {{ form.title.label(for=('title')) }}
+        </div>
+        <!-- content breif input -->
+        <div class="form-floating mt-5" style="color:black;">
+            {{ form.content_breif(class=('form-control')) }}
+            {{ form.content_breif.label(for=('content_brief')) }}
+        </div>
+        <!-- content input -->
+        <div class="form-floating mt-5" style="color:black;">
+            {{ form.content(class=('form-control h-100'), style=('min-height:300px')) }}
+            {{ form.content.label(for=('content')) }}
+        </div>
+        <!-- image input -->
+        <div class=" mt-4" style="color: black;">
+            {{ form.image(class=('form-control'), accept=('image/*')) }}
+        </div>
+        <!-- section and priority -->
+        <div class="row  justify-content-start mt-3 mb-4">
+            <div class="col-3">
+                {{ form.section.label }}
+                {{ form.section(class=('form-select')) }}
+            </div>
+            <div class="col-2">
+                {{ form.priority.label }}
+                {{ form.priority(class=('form-control')) }}
+            </div>
+        </div>
+        {{ form.submit(class=('form-control')) }}
+    </form>
+</div>
+{% endblock %}

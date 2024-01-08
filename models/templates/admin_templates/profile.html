@@ -1,0 +1,92 @@
+{% extends 'admin_templates/dash_boardBase.html' %}
+
+{% block css_link %}
+<link rel="stylesheet" href="/static/styles/profile.css">
+<link rel="stylesheet" href="/static/styles/add_admin.css">
+{% endblock %}
+{% block js_scripts %}
+<script src="/static/script/profile.js" defer></script>
+<script src="/static/script/add_admin.js" defer></script>
+{% endblock %}
+
+{% block title %}
+Profile - {{ current_user.last_name }}
+{% endblock %}
+
+{% block main_content %}
+<div class="container profile">
+    <div class="row profile-img-container">
+        <button class="profile-img" id="profile-img-btn" style="background-image: url('/static/admin/images/{{ current_user.profile_img }}');">
+        </button>
+    </div>
+    <div class="row form-container">
+        <form method="post" action="{{ url_for('edite_profile') }}"
+             class="form-register" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-floating p-3">
+                    {{ form.first_name(class=('form-control'))}}
+                    {{ form.first_name.label(for=('first_name')) }}
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.last_name(class=('form-control')) }}
+                    {{ form.last_name.label(for=('last_name')) }}
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.email_address(class=('form-control')) }}
+                    {{ form.email_address.label(for=('email_address')) }}
+                </div>
+                <a class="social-media-btn" id="chpwd-btn">
+                    Change Password
+                    <svg class="svg-inline--fa fa-angle-down fa-sm" id="pw-arrow-down" style="color: #232529; display: none;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M169.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 274.7 54.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
+                    <svg class="svg-inline--fa fa-angle-right fa-sm" id="pw-arrow-right" style="color: #232529; display: block;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg>
+                </a>
+                <div class="form-floating p-3 passwd" id="passwd-1">
+                    {{ form.password(class=('form-control')) }}
+                    <label for="password">New Password</label>
+                </div>
+                <div class="form-floating p-3 passwd" id="passwd-2">
+                    {{ form.confirm_password(class=('form-control')) }}
+                    <label for="confirm_password">Confirm Password</label>
+                </div>
+                <div class="mt-4">
+                    {{ form.profile_img(class=('form-control d-none'), accept=('image/*')) }}
+                </div>
+                <div class="align-content-center justify-content-center border-bottom">
+                    <a class="social-media-btn" id="social-media-btn">
+                        Personal contact
+                        <svg class="svg-inline--fa fa-angle-down fa-sm" id="fa-down" style="color: #232529; display: none;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M169.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 274.7 54.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
+                        <svg class="svg-inline--fa fa-angle-right fa-sm" id="fa-right" style="color: #232529; display: block;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg>
+                    </a>
+                    <div class="social-media" id="social-media">
+                        <div class="account form-floating p-3">
+                            {{ form.facebook_account(class='form-control') }}
+                            <label for="facebook_account">
+                                <i class="fa-brands fa-square-facebook fa-2xl"></i>
+                            </label>
+                        </div>
+                        <div class="account form-floating p-3">
+                            {{ form.insta_account(class='form-control') }}
+                            <label for="insta_account">
+                                <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                            </label>
+                        </div>
+                        <div class="account form-floating p-3">
+                            {{ form.x_account(class='form-control') }}
+                            <label for="x_account">
+                                <i class="fa-brands fa-square-x-twitter fa-2xl"></i>
+                            </label>
+                        </div>
+                        <div class="form-floating p-3">
+                            {{ form.phone_num(class='form-control') }}
+                            {{ form.phone_num.label(for=('phone_num')) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating p-3">
+                    {{ form.submit(class=('btn btn-primary'), value="Save Change") }}
+                    <a class="btn btn-danger btn-sm opacity-75 ms-2" href="{{url_for('dash_board')}}" role="button">Discard</a>
+                </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
