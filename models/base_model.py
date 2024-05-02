@@ -3,7 +3,7 @@ Base model which define some common attributes and methods for the rest of app m
 """
 import uuid
 from datetime import datetime
-from falsk_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 from models import db
 

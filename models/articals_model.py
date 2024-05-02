@@ -13,14 +13,13 @@ class Artical(BaseModel, db.Model):
     class represent articals table, methods and oprations
     """
 
-    __table__ = "articals"
+    __tablename__ = "articals"
 
     title = db.Column(db.String(60),
                     nullable=False,
                     unique=True)
     content = db.Column(db.Text,
-                    nullable=False,
-                    unique=True)
+                    nullable=False)
     admin_id = db.Column(db.String(60),
                     db.ForeignKey("admins.id"),
                     nullable=False)

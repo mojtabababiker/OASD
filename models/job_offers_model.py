@@ -12,7 +12,7 @@ class JobOffer(BaseModel, db.Model):
     class that represetn the jobs offers, and defines its database
     table
     """
-    __table__ = "job_offers"
+    __tablename__ = "job_offers"
 
     job_title = db.Column(db.String(60),
                     nullable=False,

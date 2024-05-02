@@ -1,11 +1,11 @@
 """
 model for the application admins class
 """
+from sqlalchemy.orm import aliased
 from models import db
 from models.base_model import BaseModel
-from modles.articals_model import Artical
+from models.articals_model import Artical
 from models.job_offers_model import JobOffer
-from sqlalchemy.orm import aliased
 
 
 class Admin(BaseModel, db.Model):
@@ -13,7 +13,7 @@ class Admin(BaseModel, db.Model):
     application admins class which represent the admins table
     and handle all the oprations on the admin process
     """
-    __table__ = "admins"
+    __tablename__ = "admins"
     first_name = db.Column(db.String(30),
                     nullable=False,
                     unique=True)
