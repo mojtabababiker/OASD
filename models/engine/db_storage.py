@@ -48,3 +48,5 @@ class DBStorage(SQLAlchemy):
 
         with self._app.app_context():
             self.create_all()
+
+    
