@@ -37,9 +37,8 @@ class BaseModel:
         """
         from app import app  # pylint: disable=import-outside-toplevel
 
-        with app.app_context():
-            db.session.add(self)
-            db.session.commit()
+        db.session.add(self)
+        db.session.commit()
 
     def delete(self):
         """
