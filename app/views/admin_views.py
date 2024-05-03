@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename  # pylint: disable=import-error
 from flask import render_template, request, redirect, url_for, flash  # pylint: disable=import-error
 from flask_login import login_user, logout_user, login_required, current_user  # pylint: disable=import-error
 from app import app
-from app.forms import LoginForm, AddAdminForm, EditProfileForm, AddArticelForm  # pylint: disable=import-error
+from app.forms import LoginForm, AddAdminForm  # pylint: disable=import-error
 from models import db
 
 
@@ -48,7 +48,7 @@ def admin_page(login_message=None):
         from models.admins_model import Admin  # pylint: disable=import-outside-toplevel
         if form.validate_on_submit():
             admin = db.session.execute(db.select(Admin).filter_by(
-                email=form.email_address.data)
+                email=form.email.data)
                 ).scalar()
 
             if admin and admin.check_password(form.password.data):
@@ -125,7 +125,7 @@ def edite_profile():
         session, prints the error, and renders the profile.html template with the form
         containing the user's current profile information.
     """
-    form = EditProfileForm()
+    form = AddAdminForm()
 
     if request.method == 'POST':
         try:
@@ -164,7 +164,7 @@ def create_article(admin_last_name=None):
         None
     """
     from models.articals_model import Artical  # pylint: disable=import-outside-toplevel
-    form = AddArticelForm()
+    form = AddAdminForm()
     if request.method == 'POST':
         # save the article
 
