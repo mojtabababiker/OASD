@@ -26,7 +26,7 @@ def dash_board():
         The rendered template with the articles and job offers.
     """
     admin = current_user
-    articles = admin.articles
+    articles = admin.articals
     job_offers = admin.job_offers
     return render_template('admin_templates/dash_board.html',
                            articles=articles, job_offers=job_offers)
@@ -73,7 +73,7 @@ def logout():
 
 #  Creating a new admin for teh web app
 @app.route('/create_admin', methods=['GET', 'POST'])
-@login_required
+
 def create_admin_page():
     """
     Renders the create admin page and handles the creation of a new admin.
@@ -98,6 +98,8 @@ def create_admin_page():
             try:
                 new_admin.update(form)  # update all the admin atributes
                 new_admin.save()
+                login_user(new_admin, remember=True)
+                flash('Admin Created Successfully')
                 return redirect(url_for('dash_board'))
 
             except Exception as err:  # pylint: disable=broad-except
