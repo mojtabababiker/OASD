@@ -540,13 +540,16 @@
     }
 }
 @media (max-width:472px){
+    .btop{
+        padding-top: 0;
+    }
     .thick{
         font-size: 24px;
     }
     .hylight{
-        font-size: 36px;
+        font-size: 32px;
     }
     .header-title{
-        font-size: 36px;
+        font-size: 32px;
     }
 }

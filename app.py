@@ -1,11 +1,21 @@
-from flask import Flask, render_template
+from models import login_manager
 from models import db
-from models.admins_model import Admin
-from models.articals_model import Artical
-from models.job_offers_model import JobOffer
+from models import app
+from models.routes import *
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = db.url
-# configure the extension app for the database connection
-db.init_app(app=app)
-db.create_tables()
+@login_manager.user_loader
+def load_user(user_id):
+    from models.admins_model import Admin
+    return db.session.execute(db.select(Admin).filter_by(id=user_id)).scalar()
+
+def unauth_callback():
+    """
+    the unauthorized call back  function to handle the redirection and flushing
+    messages to view
+    """
+    return admin_page("Login required")
+
+login_manager.unauthorized_handler(unauth_callback)
+
+if __name__ == '__main__':
+    app.run('127.0.0.1', 5500, debug=True)

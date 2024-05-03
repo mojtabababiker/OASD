@@ -3,8 +3,6 @@ Base model which define some common attributes and methods for the rest of app m
 """
 import uuid
 from datetime import datetime
-from falsk_sqlalchemy import SQLAlchemy
-
 from models import db
 
 
@@ -31,11 +29,49 @@ class BaseModel:
         self.created_at = datetime.utcnow()
         self.updated_at = datetime.utcnow()
 
-    # def __str__(self):
-    #     """
-    #     Costumize the magic method __str__
-    #     """
-    #     return f"{self.__class__.__name__}.{self.id} {self.to_dict()}"
+        # self.save()
+
+    def save(self):
+        """
+        add the current record to the session
+        """
+        from models import app
+        with app.app_context():
+            db.session.add(self)
+            db.session.commit()
+
+    def delete(self):
+        """
+        delete the record from the session and commit the change
+        """
+        from models import app
+        with app.app_context():
+            db.session.delete(self)
+            db.session.commit()
+
+    def parse(self):
+        """
+        Convert the content of the instance from markdown to html and return the result
+        """
+        import markdown
+        import os
+        import os.path
+
+        if hasattr(self, 'content'):
+            html = markdown.markdown(self.content)
+            with open(f'models/templates/{self.id}.html', mode='w', encoding='utf-8') as f:
+                print(f"{self.id}.html")
+                f.write(html)
+            return f"{self.id}.html"
+        
+    def __repr__(self):
+        """
+        Costumize the magic method __str__
+        """
+        _str = f"id: {self.id}\nTitle: {self.title}\nContent: {self.parse()}\n"
+        _str += f"Create at: {self.created_at}\nUpdate at: {self.updated_at}"
+        return _str
+        
 
     # def to_dict(self):
     #     """

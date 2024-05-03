@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.cdnfonts.com/css/campton" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/admin/dashboard_base.css">
+    {% block css_link %}
+    {% endblock %}
+</head>
+<body>
+    <!-- navbar section -->
+    <!-- side bar -->
+    <div class="container sidebar-nav" id="sideBar">
+      <section class="profile">
+          <div class="nav-row">
+              <img class="nav-logo" src="/static/images/dashboard/icons/nav_bar_logo.png" alt="Nav Bar Logo">
+              <div class="nav-item settings">
+                  <img src="/static/images/dashboard/icons/setting.png" alt="">
+              </div>
+          </div>
+          <div class="nav-row profile-img">
+              <img src="/static/admin/images/default.png" alt="profile image">
+          </div>
+          <div class="nav-row">
+              <h3 class="admin-name">Mojtaba Babiker</h3>
+              <p class="admin-email">mojmohammed@gmail.com</p>
+          </div>
+          <!-- <div class="nav-row">
+          </div> -->
+      </section>
+      <section class="nav-links-container">
+          <h3>DashBoard</h3>
+          <ul class="navlinks">
+              <li class="navlink">
+                  <a href="#">
+                      <img src="/static/images/dashboard/icons/articles.png" alt="">
+                      Articles
+                  </a>
+              </li>
+              <li class="navlink">
+                  <a href="#">
+                      <img src="/static/images/dashboard/icons/job-offer.png" alt="">
+                      Job Offers
+                  </a>
+              </li>
+              <li class="navlink">
+                  <a href="#">
+                      <img src="/static/images/dashboard/icons/tasks.png" alt="">
+                      All Tasks
+                  </a>
+              </li>
+              <li class="navlink">
+                  <a href="#">
+                      <img src="/static/images/dashboard/icons/statistic.png" alt="">
+                      Analytics
+                  </a>
+              </li>
+          </ul>
+      </section>
+      <section class="nav-links-container">
+          <h3>Options</h3>
+          <ul class="navlinks">
+              <li class="navlink">
+                  <a href="#">
+                      <img src="/static/images/dashboard/icons/logout.png" alt="">
+                      Logout
+                  </a>
+              </li>
+          </ul>
+      </section>
+    </div>
+    <!-- end side bar -->
+    <div class="container-fluid header-container res-nv section">
+        <!-- top navbar -->
+        <div class="container-fluid navbar-container">
+            <!-- side bar toggler -->
+            <div class="nav-item sidbar-toggler" id="sidebar-toggle">
+                <img src="/static/images/dashboard/icons/menu-bar.png" alt="">
+            </div>
+            <!-- search section -->
+            <div class="search-section hide" id="searchBar">
+                <div class="col-2 nav-item" id="search-btn">
+                    <img src="/static/images/dashboard/icons/search.png" alt="">
+                </div>
+                <div class="col search-bar">
+                    <form action="#" method="post" class="search-form">
+                        <input type="search" name="serach" id="search-input" placeholder="Search">
+                    </form>
+                </div>
+                <div class="col-2 nav-item" id="close-search-btn">
+                    <img src="/static/images/dashboard/icons/close.png" alt="">
+                </div>
+            </div>
+            <div class="nav-item" id="search">
+                <img src="/static/images/dashboard/icons/search.png" alt="">
+            </div>
+            <div class="nav-item settings" id="settings">
+                <img src="/static/images/dashboard/icons/setting.png" alt="">
+            </div>
+        </div>
+        <!-- end top navbar -->
+    </div>
+    <!-- end navbar -->
+    <!-- hero section -->
+    <div class="container-fluid res-nv section">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js" 
+    integrity="sha256-UnTxHm+zKuDPLfufgEMnKGXDl6fEIjtM+n1Q6lL73ok=" 
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="/static/script/admin/dashboard_base.js"></script>
+    {% block js_link %}
+    {% endblock %}
+</body>
+</html>

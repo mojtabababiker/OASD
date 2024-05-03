@@ -121,7 +121,8 @@
     gap: 25px;
     row-gap: 40px;
 }
-.vession img{
+.vession img,
+.mission img{
     padding-top: 20px;
     width: 100%;
 }

@@ -12,7 +12,7 @@ class JobOffer(BaseModel, db.Model):
     class that represetn the jobs offers, and defines its database
     table
     """
-    __table__ = "job_offers"
+    __tablename__ = "job_offers"
 
     job_title = db.Column(db.String(60),
                     nullable=False,
@@ -22,7 +22,7 @@ class JobOffer(BaseModel, db.Model):
     admin_id = db.Column(db.String(60),
                     db.ForeignKey("admins.id"),
                     nullable=False)
-    def __init__(self, title, content, admin_id):
+    def __init__(self, title=None, content=None, admin_id=None):
         self.job_title = title
         self.content = content
         self.admin_id = admin_id
