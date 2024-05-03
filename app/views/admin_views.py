@@ -1,79 +1,51 @@
+#!/usr/bin/env python3
 """
-Application routes module
+This module contains all the admin views
 """
+import os
 import os.path
+from werkzeug.utils import secure_filename
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
-from models import app, db
-# from models.forms import LoginForm, AddAdminForm, AddArticelForm
-from werkzeug.utils import secure_filename
+from app import app
+from models import db
 
 
-@app.route('/')
-@app.route('/home')
-def home_page():
-    from models.articals_model import Artical
-    articals = db.session.execute(db.select(Artical).order_by(Artical.priority.desc()).limit(3)).scalars()
-    return render_template('home_2.html', articals=articals)
-
-@app.route('/about')
-@app.route('/about/<id>')
-def about_page(id=None):
-    return render_template('about.html', id=id)
-
-@app.route('/contacts')
-def contacts_page():
-    return render_template('contact_us.html')
-
-@app.route('/causes')
-@app.route('/causes/<section>')
-def articles(section=None):
-    from models.articals_model import Artical
-
-    causes = {'education': 'education.html', 'health-care': 'health_care.html',
-             'culture': 'culture.html', 'emergency-relief':'crisis.html'}
-
-    if section:
-        articals = db.session.execute(db.select(Artical).
-                                        filter_by(section=section).
-                                        order_by(Artical.priority.desc()).
-                                        limit(9)).scalars()
-        return render_template(causes[section], articals=articals)
-    return render_template('causes.html')
-
-@app.route('/articles/<article_id>')
-def article_page(article_id):
-    """
-    article page route
-    """
-    from models.articals_model import Artical
-
-    article = db.get_or_404(Artical, article_id)
-    return render_template('article.html', artical=article)
-
-
-#==========================================================================
-#                         Admin Routes
-#                 ===========================
 @app.route('/dash_board')
 @login_required
 def dash_board():
     """
-    admin dash board route functoin
+    admin dash board route function
+    
+    This function renders the admin dashboard template and passes the articles and job offers
+    associated with the current admin to the template.
+    
+    Returns:
+        The rendered template with the articles and job offers.
     """
     admin = current_user
-    articals = admin.articals
+    articles = admin.articles
     job_offers = admin.job_offers
-    return render_template('admin_templates/dash_board.html', articles=articals, job_offers=job_offers)
+    return render_template('admin_templates/dash_board.html',
+                           articles=articles, job_offers=job_offers)
 
 #  Login as admin
 @app.route('/admin', methods=['GET', 'POST'])
 def admin_page(login_message=None):
-    from datetime import timedelta
-    from models.forms import LoginForm
+    """
+    Renders the admin login page and handles the login functionality.
+
+    Args:
+        login_message (str, optional): A message to display on the login page. Defaults to None.
+
+    Returns:
+        A rendered template for the admin login page.
+    """
+    from datetime import timedelta  # pylint: disable=import-outside-toplevel
+    from models.forms import LoginForm  # pylint: disable=import-outside-toplevel
     form = LoginForm()
     if request.method == "POST":
-        from models.admins_model import Admin
+        from models.admins_model import Admin  # pylint: disable=import-outside-toplevel
         if form.validate_on_submit():
             admin = db.session.execute(db.select(Admin).filter_by(
                 email=form.email_address.data)
@@ -83,13 +55,19 @@ def admin_page(login_message=None):
                 login_user(admin, remember=True, duration=timedelta(seconds=10800))
                 return redirect(url_for('dash_board'))
         login_message = 'Envalid Email or Password'
-    
-    return render_template('admin_templates/login.html', form=form, login_message=login_message) 
+
+    return render_template('admin_templates/login.html', form=form, login_message=login_message)
 
 #  Logout
 @app.route('/admin/logout')
 @login_required
 def logout():
+    """
+    Logs out the current user and redirects to the admin page.
+
+    Returns:
+        A redirect response to the admin page.
+    """
     logout_user()
     return redirect(url_for('admin_page'))
 
@@ -97,10 +75,23 @@ def logout():
 @app.route('/create_admin', methods=['GET', 'POST'])
 @login_required
 def create_admin_page():
-    from models.forms import AddAdminForm
+    """
+    Renders the create admin page and handles the creation of a new admin.
+
+    Returns:
+        If the request method is GET:
+            The rendered template 'admin_templates/add_admin.html' with the AddAdminForm.
+        If the request method is POST:
+            If the form is valid and the admin is successfully created:
+                Redirects to the 'dash_board' route.
+            If there are form validation errors:
+                Flashes error messages and renders the template 
+                'admin_templates/add_admin.html' with the AddAdminForm.
+    """
+    from models.forms import AddAdminForm  # pylint: disable=import-outside-toplevel
     form = AddAdminForm()
     if request.method == "POST":
-        from models.admins_model import Admin
+        from models.admins_model import Admin  # pylint: disable=import-outside-toplevel
         # create the new Admin and add it to database
         if form.validate_on_submit():
 
@@ -121,6 +112,20 @@ def create_admin_page():
 @app.route('/admin/edite_profile', methods=['GET', 'POST'])
 @login_required
 def edite_profile():
+    """
+    View function for editing the user profile.
+
+    This function handles both GET and POST requests. If the request method is GET,
+    it renders the profile.html template with a form pre-filled with the user's current
+    profile information. If the request method is POST, it updates the user's profile
+    information based on the submitted form data.
+
+    Returns:
+        If the form submission is successful, it redirects the user to the dash_board
+        route. If there is an error during the form submission, it rolls back the database
+        session, prints the error, and renders the profile.html template with the form
+        containing the user's current profile information.
+    """
     from models.forms import EditProfileForm
     form = EditProfileForm()
 
@@ -129,7 +134,7 @@ def edite_profile():
             current_user.update(form)
             db.session.commit()
             return redirect(url_for('dash_board'))
-        except Exception as err:
+        except Exception as err:  # pylint: disable=broad-except
             db.session.rollback()
             print(err)
     form.first_name.data = current_user.first_name
@@ -148,8 +153,20 @@ def edite_profile():
 @app.route('/admin/<admin_last_name>/new_article', methods=['GET', 'POST'])
 @login_required
 def create_article(admin_last_name=None):
-    from models.forms import AddArticelForm
-    from models.admins_model import Artical
+    """
+    Create a new article.
+
+    Args:
+        admin_last_name (str, optional): The last name of the admin. Defaults to None.
+
+    Returns:
+        Response: The response object.
+
+    Raises:
+        None
+    """
+    from models.forms import AddArticelForm  # pylint: disable=import-outside-toplevel
+    from models.admins_model import Artical  # pylint: disable=import-outside-toplevel
     form = AddArticelForm()
     if request.method == 'POST':
         # save the article
@@ -162,7 +179,7 @@ def create_article(admin_last_name=None):
             new_article.section = form.section.data
             new_article.priority = form.priority.data
             new_article.admin_id = current_user.id
-            
+
             img = form.image.data
             image_path = secure_filename(img.filename)
             if image_path:
