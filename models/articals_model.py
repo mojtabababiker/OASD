@@ -2,10 +2,10 @@
 model represent articals table, and handle all the work done on the
 articals
 """
-from models import db
-from models.base_model import BaseModel
 import os
 import os.path
+from models import db
+from models.base_model import BaseModel
 
 
 class Artical(BaseModel, db.Model):
@@ -29,8 +29,8 @@ class Artical(BaseModel, db.Model):
                     default=0,
                     nullable=False)
 
-    def __init__(self, title, content, admin_id,
-                image_path=None, priority=0):
+    def __init__(self, title: str = None, content: str = None,
+                 admin_id: str = None, image_path=None, priority=0):
         """
         initiate the artical class 
         """

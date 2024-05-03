@@ -1,11 +1,12 @@
 """
 model for the application admins class
 """
-from sqlalchemy.orm import aliased
+from uuid import UUID
+from sqlalchemy.orm import aliased  # pylint: disable=import-error
 from models import db
 from models.base_model import BaseModel
-from models.articals_model import Artical
-from models.job_offers_model import JobOffer
+from models.articals_model import Artical  # pylint: disable=unused-import
+from models.job_offers_model import JobOffer  # pylint: disable=unused-import
 
 
 class Admin(BaseModel, db.Model):
@@ -31,7 +32,8 @@ class Admin(BaseModel, db.Model):
     job_offers = db.relationship("JobOffer", backref="admin",
                     cascade="all, delete-orphan")
 
-    def __init__(self, first_name, last_name, email, password):
+    def __init__(self, first_name: str = '', last_name: str = '',
+                 email: str = '', password: UUID = ''):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email

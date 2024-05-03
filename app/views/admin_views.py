@@ -4,10 +4,12 @@ This module contains all the admin views
 """
 import os
 import os.path
-from werkzeug.utils import secure_filename
-from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user, login_required, current_user
+from datetime import timedelta
+from werkzeug.utils import secure_filename  # pylint: disable=import-error
+from flask import render_template, request, redirect, url_for, flash  # pylint: disable=import-error
+from flask_login import login_user, logout_user, login_required, current_user  # pylint: disable=import-error
 from app import app
+from app.forms import LoginForm, AddAdminForm, EditProfileForm, AddArticelForm  # pylint: disable=import-error
 from models import db
 
 
@@ -41,8 +43,6 @@ def admin_page(login_message=None):
     Returns:
         A rendered template for the admin login page.
     """
-    from datetime import timedelta  # pylint: disable=import-outside-toplevel
-    from models.forms import LoginForm  # pylint: disable=import-outside-toplevel
     form = LoginForm()
     if request.method == "POST":
         from models.admins_model import Admin  # pylint: disable=import-outside-toplevel
@@ -88,7 +88,6 @@ def create_admin_page():
                 Flashes error messages and renders the template 
                 'admin_templates/add_admin.html' with the AddAdminForm.
     """
-    from models.forms import AddAdminForm  # pylint: disable=import-outside-toplevel
     form = AddAdminForm()
     if request.method == "POST":
         from models.admins_model import Admin  # pylint: disable=import-outside-toplevel
@@ -101,7 +100,7 @@ def create_admin_page():
                 new_admin.save()
                 return redirect(url_for('dash_board'))
 
-            except Exception as err:
+            except Exception as err:  # pylint: disable=broad-except
                 db.session.rollback()
                 print(err)
         for err, err_msq in form.errors.items():
@@ -126,7 +125,6 @@ def edite_profile():
         session, prints the error, and renders the profile.html template with the form
         containing the user's current profile information.
     """
-    from models.forms import EditProfileForm
     form = EditProfileForm()
 
     if request.method == 'POST':
@@ -165,8 +163,7 @@ def create_article(admin_last_name=None):
     Raises:
         None
     """
-    from models.forms import AddArticelForm  # pylint: disable=import-outside-toplevel
-    from models.admins_model import Artical  # pylint: disable=import-outside-toplevel
+    from models.articals_model import Artical  # pylint: disable=import-outside-toplevel
     form = AddArticelForm()
     if request.method == 'POST':
         # save the article

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask  # pylint: disable=import-error
 from models import db
 
 app = Flask(__name__)

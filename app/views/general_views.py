@@ -1,7 +1,7 @@
 """
 Application routes module
 """
-from flask import render_template
+from flask import render_template  # pylint: disable=import-error
 from app import app
 from models import db
 # from models.forms import LoginForm, AddAdminForm, AddArticelForm
@@ -20,12 +20,16 @@ def home_page():
         The rendered home page template with the latest articles.
     """
     from models.articals_model import Artical  # pylint: disable=import-outside-toplevel
-    articals = db.session.execute(db.select(Artical).order_by(Artical.priority.desc()).limit(3)).scalars()
+    articals = db.session.execute(
+        db.select(Artical).
+        order_by(Artical.priority.desc()).
+        limit(3)
+        ).scalars()
     return render_template('home_2.html', articals=articals)
 
 @app.route('/about')
 @app.route('/about/<id>')
-def about_page(id=None):
+def about_page(id_=None):
     """
     Render the about page.
 
@@ -35,7 +39,7 @@ def about_page(id=None):
     Returns:
         str: The rendered about page HTML.
     """
-    return render_template('about.html', id=id)
+    return render_template('about.html', id=id_)
 
 @app.route('/contacts')
 def contacts_page():
