@@ -13,7 +13,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///app.db"
 csrf = CSRFProtect(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-db = DBStorage(app)
+db = DBStorage()
+db.init_app(app)
 
 
 # db.create_tables(app)
