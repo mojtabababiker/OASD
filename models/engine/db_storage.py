@@ -10,31 +10,43 @@ class DBStorage(SQLAlchemy):
     class the represents an upstract for database storage oprations
     whic inherits from the SQLAlchemy class
     """
-    db_user = getenv("DB_USER")
-    db_psswd = getenv("DB_PSSWD")
-    db_host = getenv("DB_HOST")
-    db_name = getenv("DB_NAME")
+    __db_user = getenv("DB_USER")
+    __db_psswd = getenv("DB_PSSWD")
+    __db_host = getenv("DB_HOST")
+    __db_port = getenv("DB_PORT")
+    __db_name = getenv("DB_NAME")
 
-    # url = URL.create("mysql",
-    #             username=__db_name,
-    #             password=__db_psswd,
-    #             host=__db_host,
-    #             port=3306,
-    #             database=__db_name)
+    url = URL.create("mysql+mysqldb",
+                username=__db_user,
+                password=__db_psswd,
+                host=__db_host,
+                port=__db_port,
+                database=__db_name)
 
-    def __inti__(self, app):
+    def __init__(self):
         """
         init the database storage apstarction
         """
-        print(self.url)
+        super().__init__()
+        self._app = None
 
-    def create_tables(self, app):
+    # override the SQLAlchemy init_app method
+    def init_app(self, app):
+        """
+        set app to self._app and call super init_app method
+        """
+        self._app = app
+        super().init_app(app)
+        
+    def create_tables(self):
+        """
+        create all the database tables
+        """
         from models.admins_model import Admin
         from models.articals_model import Artical
         from models.job_offers_model import JobOffer
-        with app.app_context():
-            self.drop_all()
+
+        with self._app.app_context():
             self.create_all()
 
-        # admin = Admin("Mojtaba", 'Mohammed', 'mojmohammad98@gmail.com', 'tabo0901267500')
-        # admin.save()
+    

@@ -1,14 +1,13 @@
 """
 model for the application admins class
 """
+import os
 import os.path
-from models import db, bcrypt
-from models.base_model import BaseModel
-from models.articals_model import Artical
-from models.job_offers_model import JobOffer
-from sqlalchemy.orm import aliased
-from flask_login import UserMixin
 from werkzeug.utils import secure_filename
+from models import db
+from models.base_model import BaseModel
+from models.articals_model import Artical  # pylint: disable=unused-import
+from models.job_offers_model import JobOffer  # pylint: disable=unused-import
 
 
 class Admin(BaseModel, db.Model):
@@ -25,95 +24,91 @@ class Admin(BaseModel, db.Model):
                     unique=False)
     email = db.Column(db.String(30),
                     nullable=False,
-                    primary_key=True)
-    password_hashed = db.Column(db.String(30),
+                    unique=True)
+    password_hashed = db.Column(db.String(72),
                     nullable=False,
                     unique=False)
-    profile_img = db.Column(db.String,
+    profile_img = db.Column(db.String(72),
                     nullable=False,
                     unique=True,
                     default='default.png')
-    acount_insta = db.Column(db.String, nullable=True)
-    acount_fb = db.Column(db.String, nullable=True)
-    acount_x = db.Column(db.String, nullable=True)
-    phone_num = db.Column(db.String, nullable=True)
+    acount_insta = db.Column(db.String(72), nullable=True)
+    acount_fb = db.Column(db.String(72), nullable=True)
+    acount_x = db.Column(db.String(72), nullable=True)
+    phone_num = db.Column(db.String(72), nullable=True)
     articals = db.relationship("Artical", backref="admin",
                     cascade="all, delete-orphan")
     job_offers = db.relationship("JobOffer", backref="admin",
                     cascade="all, delete-orphan")
 
-    def __init__(self):
-        BaseModel.__init__(self)
+    def __init__(self, first_name: str = '', last_name: str = '',
+                 email: str = '', password = ''):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        # self.password_hashed = bcrypt.generate_password_hash(password).decode('utf-8')
+        super().__init__()
 
-    def __repr__(self):
-        _str = f"id: {self.id}\nFirst Name: {self.first_name}"
-        return _str
+    def update(self, form):
+        """
+        update the admin attributes from the form data
+        """
+        not_attr = ['csrf_token', 'submit', 'confirm_password']
+        for field in form:
+            if field.data and field.name not in not_attr:
+                if (field.name == 'profile_img'):
+                    self.profile = field.data
+                else :
+                    setattr(self, field.name, field.data)
+                    print(f"==========> {field.name} {field.data}")
+
+    def check_password(self, password: str) -> bool:
+        """
+        check password hash with the given password
+        """
+        from app import bcrypt  # pylint: disable=import-outside-toplevel
+
+        return bcrypt.check_password_hash(self.password_hashed, password)
 
     @property
     def password(self):
         """
-        return the hashed encryptred Admin password
+        password property setter
         """
-        return self.password_hashed
+        raise AttributeError('password is not a readable attribute')
 
     @password.setter
-    def password(self, plain_passwd):
+    def password(self, password: str):
         """
-        set the value of password after hash the plain_passwd
+        password property setter
         """
-        self.password_hashed = bcrypt.generate_password_hash(
-                                plain_passwd
-                                ).decode('utf-8')
+        from app import bcrypt  # pylint: disable=import-outside-toplevel
+
+        self.password_hashed = bcrypt.generate_password_hash(password).decode('utf-8')
 
     @property
-    def is_active(self):
-        return True
-
-    @property
-    def is_authenticated(self):
-        return self.is_active
-
-    @property
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return str(self.id)
- 
-    def check_password(self, passwd):
+    def profile(self):
         """
-        validate the user inputed password
+        profile_img property getter
         """
-        return bcrypt.check_password_hash(self.password, passwd)
+        return self.profile_img
 
-    def update(self, form):
+    @profile.setter
+    def profile(self, img):
         """
-        update the admin instance with all the data in the form
-        the form is came from the route, which enterd by the user
-        either in the creation of the admin or editing the profile
+        profile_img property setter
         """
-        from models import app
-        self.first_name = form.first_name.data
-        self.last_name = form.last_name.data
-        self.email = form.email_address.data
-        if form.password.data != self.password:
-            self.password = form.password.data
-        self.phone_num = form.phone_num.data
-        self.acount_fb = form.facebook_account.data
-        self.acount_insta = form.insta_account.data
-        self.acount_x = form.x_account.data
+        from app import app  # pylint: disable=import-outside-toplevel
 
-        
-        img = form.profile_img.data
         image_path = secure_filename(img.filename)
         if image_path:
             dir_name = os.path.dirname(app.instance_path)
             extension = os.path.basename(image_path).split(".")[1]
-            new_path = os.path.join(dir_name, 'models', 'static', 'admin', 'images',
+            new_path = os.path.join(dir_name, 'app', 'static', 'images', 'admin',
                                     f"{self.id}.{extension}")
             try:
                 os.remove(new_path)
-            except Exception:
+            except Exception:  # pylint: disable=broad-except
                 pass
             img.save(new_path)
             image_path = f"{self.id}.{extension}"
@@ -122,3 +117,28 @@ class Admin(BaseModel, db.Model):
             # if no image was provided
             image_path = "default.png"
         self.profile_img = image_path
+
+    # login manager methods
+    def is_authenticated(self):
+        """
+        check if the user is authenticated
+        """
+        return True
+
+    def is_active(self):
+        """
+        check if the user is active
+        """
+        return True
+
+    def is_anonymous(self):
+        """
+        check if the user is anonymous
+        """
+        return False
+
+    def get_id(self):
+        """
+        get the user id
+        """
+        return self.id
